@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jSllUNKkEeiah_gIquztzw" name="UseCase">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_jeMYYNKkEeiah_gIquztzw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_72WPANKkEeiah_gIquztzw" name="Joueur"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_DBzwINKlEeiah_gIquztzw" name="Voir les solutions d'un tirage donné"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_GtySoNKlEeiah_gIquztzw" name="Jouer une partie">
+    <extend xmi:type="uml:Extend" xmi:id="_GktSUNKpEeiah_gIquztzw" extendedCase="_XluYwNKoEeiah_gIquztzw" extensionLocation="_Gkt5YNKpEeiah_gIquztzw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_L5mQMNKlEeiah_gIquztzw" memberEnd="_L5qhoNKlEeiah_gIquztzw _L5rvwNKlEeiah_gIquztzw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_L5oscNKlEeiah_gIquztzw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_L5pTgNKlEeiah_gIquztzw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_L5qhoNKlEeiah_gIquztzw" name="jouer une partie" type="_DBzwINKlEeiah_gIquztzw" association="_L5mQMNKlEeiah_gIquztzw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_L5rvwNKlEeiah_gIquztzw" name="joueur" type="_72WPANKkEeiah_gIquztzw" association="_L5mQMNKlEeiah_gIquztzw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_QYIwsNKoEeiah_gIquztzw" name="Jouer une partie contre un autre joueur">
+    <generalization xmi:type="uml:Generalization" xmi:id="_HRrtENKpEeiah_gIquztzw" general="_GtySoNKlEeiah_gIquztzw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_XluYwNKoEeiah_gIquztzw" name="Choisir un niveau de jeu">
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_Gkt5YNKpEeiah_gIquztzw" name="ExtensionPoint1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_bufk8NKoEeiah_gIquztzw" name="S'inscrire à un tournoi"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_gQsk0NKoEeiah_gIquztzw" name="Jouer à un tournoi"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_jJev0NKoEeiah_gIquztzw" name="Paramétrer des niveaux de jeu"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_rTgyANKoEeiah_gIquztzw" name="Définir un tounoi en réseau"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_zqDmMNKoEeiah_gIquztzw" name="Administrateur"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2jqQkNKoEeiah_gIquztzw" memberEnd="_2jq3otKoEeiah_gIquztzw _2jresNKoEeiah_gIquztzw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2jq3oNKoEeiah_gIquztzw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2jq3odKoEeiah_gIquztzw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2jq3otKoEeiah_gIquztzw" name="jouer une partie" type="_GtySoNKlEeiah_gIquztzw" association="_2jqQkNKoEeiah_gIquztzw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2jresNKoEeiah_gIquztzw" name="joueur" type="_72WPANKkEeiah_gIquztzw" association="_2jqQkNKoEeiah_gIquztzw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_9LijgNKoEeiah_gIquztzw" memberEnd="_9LjKktKoEeiah_gIquztzw _9LjKk9KoEeiah_gIquztzw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9LjKkNKoEeiah_gIquztzw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9LjKkdKoEeiah_gIquztzw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_9LjKktKoEeiah_gIquztzw" name="s'inscrire à un tournoi" type="_bufk8NKoEeiah_gIquztzw" association="_9LijgNKoEeiah_gIquztzw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_9LjKk9KoEeiah_gIquztzw" type="_72WPANKkEeiah_gIquztzw" association="_9LijgNKoEeiah_gIquztzw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="__iCg0NKoEeiah_gIquztzw" memberEnd="__iDH4dKoEeiah_gIquztzw __iDH4tKoEeiah_gIquztzw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__iCg0dKoEeiah_gIquztzw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__iDH4NKoEeiah_gIquztzw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__iDH4dKoEeiah_gIquztzw" name="jouer à un tournoi" type="_gQsk0NKoEeiah_gIquztzw" association="__iCg0NKoEeiah_gIquztzw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__iDH4tKoEeiah_gIquztzw" type="_72WPANKkEeiah_gIquztzw" association="__iCg0NKoEeiah_gIquztzw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_A5ifQNKpEeiah_gIquztzw" memberEnd="_A5jGUtKpEeiah_gIquztzw _A5jGU9KpEeiah_gIquztzw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_A5jGUNKpEeiah_gIquztzw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_A5jGUdKpEeiah_gIquztzw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_A5jGUtKpEeiah_gIquztzw" name="paramétrer des niveaux de jeu" type="_jJev0NKoEeiah_gIquztzw" association="_A5ifQNKpEeiah_gIquztzw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_A5jGU9KpEeiah_gIquztzw" name="administrateur" type="_zqDmMNKoEeiah_gIquztzw" association="_A5ifQNKpEeiah_gIquztzw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Brrt4NKpEeiah_gIquztzw" memberEnd="_BrsU8tKpEeiah_gIquztzw _BrsU89KpEeiah_gIquztzw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BrsU8NKpEeiah_gIquztzw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BrsU8dKpEeiah_gIquztzw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_BrsU8tKpEeiah_gIquztzw" name="définir un tounoi en réseau" type="_rTgyANKoEeiah_gIquztzw" association="_Brrt4NKpEeiah_gIquztzw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_BrsU89KpEeiah_gIquztzw" name="administrateur" type="_zqDmMNKoEeiah_gIquztzw" association="_Brrt4NKpEeiah_gIquztzw"/>
+  </packagedElement>
+</uml:Model>
