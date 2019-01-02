@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public interface Operateur {
 
     /** Permet de créer une opérande calculée à partir de deux autres opérandes */
-    public int calculer(int operandeGauche, int operandeDroit);
+    public int calculer(int opGauche, int opDroit);
 
     /** Retourne le pattern lié à l'opérateur */
     public Pattern getRegex();

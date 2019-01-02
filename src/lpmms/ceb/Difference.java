@@ -20,13 +20,13 @@ public class Difference implements Operateur {
             return operandeGauche - operandeDroit;
         // Sinon, on renvoie une valeur d'erreur
         } else {
-            return -1;
+            throw new IllegalArgumentException("L'opérande gauche doit être strictement supérieur à l'opérande droit");
         }
     }
 
     @Override
     public Pattern getRegex() {
-        return regexDiff;
+        return this.regexDiff;
     }
 
     @Override

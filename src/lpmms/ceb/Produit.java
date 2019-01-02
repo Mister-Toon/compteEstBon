@@ -14,13 +14,13 @@ public class Produit implements Operateur {
     Pattern regexProduit = Pattern.compile("\\d{1,3}\\s*[x]\\s*\\d{1,3}");
 
     @Override
-    public int calculer(int operandeGauche, int operandeDroit) {
-        return operandeGauche * operandeDroit;
+    public int calculer(int opGauche, int opDroit) {
+        return opGauche * opDroit;
     }
 
     @Override
     public Pattern getRegex() {
-        return regexProduit;
+        return this.regexProduit;
     }
 
     @Override

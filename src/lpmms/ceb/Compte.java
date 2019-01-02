@@ -61,7 +61,19 @@ public class Compte {
         
         return affichageCompte.toString();
     }
-    
-    
+
+    /**
+     * @return aResoudre
+     */
+    public int getAResoudre(){
+        return aResoudre;
+    }
+
+    /**
+     * @return opInitiales
+     */
+    public Vector<Operande> getOpInitiales(){
+        return opInitiales;
+    }
 
 }

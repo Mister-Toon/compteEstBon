@@ -11,16 +11,16 @@ public class Somme implements Operateur{
      *     zéro ou plusieurs fois le caractère d'espacement
      *     1 à 3 chiffres
      */
-    Pattern regexSomme = Pattern.compile("\\d{1,3}\\s*[+]\\s*\\d{1,3}");
+    private Pattern regexSomme = Pattern.compile("\\d{1,3}\\s*[+]\\s*\\d{1,3}");
 
     @Override
-    public int calculer(int operandeGauche, int operandeDroit) {
-        return operandeGauche + operandeDroit;
+    public int calculer(int opGauche, int opDroit) {
+        return opGauche + opDroit;
     }
 
     @Override
     public Pattern getRegex() {
-        return regexSomme;
+        return this.regexSomme;
     }
 
     @Override
