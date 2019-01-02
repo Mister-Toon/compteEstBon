@@ -4,13 +4,22 @@
  */
 package lpmms.ceb;
 
-/** 
+import java.util.regex.Pattern;
+
+/**
  * Bouchon : pour les opérandes calculés
  * TODO comment class responsibilities
  * @author frederic.barrios
  *
  */
-public class Operateur {
+public interface Operateur {
 
-    // TODO COO des opérateurs, de leur syntaxe
+    /** Permet de créer une opérande calculée à partir de deux autres opérandes */
+    public int calculer(int operandeGauche, int operandeDroit);
+
+    /** Retourne le pattern lié à l'opérateur */
+    public Pattern getRegex();
+
+    /** Retourne le symbole de l'opérateur */
+    public char getSymbole();
 }

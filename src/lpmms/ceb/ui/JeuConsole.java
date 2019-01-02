@@ -11,16 +11,16 @@ import lpmms.ceb.Niveau;
  * Jeu du "Compte est bon" sur console texte
  * <ul>
  *     <li>Choix d'un niveau</li>
- *     <li>Génération d'un compte par ce niveau</li>
+ *     <li>GÃ©nÃ©ration d'un compte par ce niveau</li>
  *     <li>Demande de la solution sous forme texte au joueur</li>
  *     <li>Bilan et score</li>
- *     <li>Affichage des meilleures solutions calculées</li>
+ *     <li>Affichage des meilleures solutions calculï¿½es</li>
  * </ul>    
  * @author frederic.barrios
  */
 public class JeuConsole {
 
-    /** Compte à résoudre durant ce jeu console */
+    /** Compte Ã  rÃ©soudre durant ce jeu console */
     private static Compte aCalculer;
 
     /** Eviter l'instanciation */
@@ -33,29 +33,30 @@ public class JeuConsole {
     public static void main(String[] args) {
         
         // TODO choix du niveau
-        //      itération 1 : pas de choix => niveau classique
+        //      itÃ©ration 1 : pas de choix => niveau classique
         
-        /* Définition du niveau standard */
+        /* DÃ©finition du niveau standard */
         Niveau standard = new Niveau(
             "classique",
             /* plaques disponibles pour tirage */
-            new int[]{1, 1, 2, 2, /* TODO à compléter */100},
-            6,    // opérandes initiales 
-            101,  // min de valeur du nombre à calculer
-            999,  // max de valeur du nombre à calculer
-            45,   // tps max de réflexion avant réponse (en s)
-            35);  // tps max d'énoncé de la solution (en s)
+            new int[]{1, 1, 2, 2, 25, 100},
+            6,    // opÃ©randes initiales
+            101,  // min de valeur du nombre Ã  calculer
+            999,  // max de valeur du nombre Ã  calculer
+            45,   // tps max de rÃ©flexion avant rÃ©ponse (en s)
+            35);  // tps max d'Ã©noncÃ© de la solution (en s)
                                      
         
-        /* Tirage du compte à résoudre */
+        /* Tirage du compte Ã  rÃ©soudre */
         aCalculer = standard.fabriquer();
         
-        /* Affichage et début du chronométrage */
+        /* Affichage et dÃ©but du chronomÃ©trage */
+        System.out.println("Voici le niveau : \n" + standard);
         System.out.println("Voici le tirage : \n" + aCalculer);
         
         /* Demande de la solution */
         System.out.println("\n\nVotre solution : ");
-        System.out.print("Compte trouvé : ");
+        System.out.print("Compte trouve : ");
         
         /* Affichage des meilleures solutions */
         

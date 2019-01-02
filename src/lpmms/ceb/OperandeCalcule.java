@@ -13,9 +13,11 @@ public class OperandeCalcule extends OperandeInitiale {
 
     /**
      * TODO comment initialization state
-     * @param init
+     * @param gauche
+     * @param oper
+     * @param droit
      */
-    public OperandeCalcule(Operande Gauche, Operateur oper, Operande droit) {
+    public OperandeCalcule(Operande gauche, Operateur oper, Operande droit) {
         super(10);  // bouchon
         // TODO Auto-generated constructor stub
     }

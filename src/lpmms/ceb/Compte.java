@@ -15,6 +15,9 @@ public class Compte {
 
     /** Le nombre à calculer à partir des opérandes */
     private int aResoudre;
+
+    /** Les opérandes initiales */
+    private Vector<Operande> opInitiales;
     
     /** Les opérandes disponibles à un instant t */
     private Vector<Operande> disponibles;
@@ -39,6 +42,7 @@ public class Compte {
         
         this.aResoudre = aResoudre;
         // TODO clonage pour conserver l'état initial ???
+        this.opInitiales = new Vector<Operande>(disponibles);
         this.disponibles = new Vector<Operande>(disponibles);
         this.tpsReflexion = tpsReflexion;
         this.tpsEnonce = tpsEnonce;

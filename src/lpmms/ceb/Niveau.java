@@ -4,7 +4,10 @@
  */
 package lpmms.ceb;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.Vector;
 
 /** 
  * TODO comment class responsibilities
@@ -13,8 +16,27 @@ import java.util.List;
  */
 public class Niveau {
 
-    // TODO état d'instance
-    
+    /** Libelle décrivant le niveau */
+    private String libelle;
+
+    /** Opérandes de ce niveau */
+    private int[] jeuOperandes;
+
+    /** Nombre d'opérandes de ce niveau */
+    private int nbOperandes;
+
+    /** Valeur minimale du nombre à calculer */
+    private int min;
+
+    /** Valeur maximale du nombre à calculer */
+    private int max;
+
+    /** Temps de réflexion donné au joueur pour un niveau */
+    private int tpsReflexion;
+
+    /** Temps pendant lequel sera énoncé la solution */
+    private int tpsEnonce;
+
     /**
      * TODO comment initialization state
      * @param libelle nom de ce niveau
@@ -33,8 +55,20 @@ public class Niveau {
                   int tpsReflexion,
                   int tpsEnonce) {
         
-        // TODO Auto-generated constructor stub
-        // TODO initialiser les champs pour les tirages
+        // Initialisation des champs d'un niveau
+        this.libelle = libelle;
+
+        this.jeuOperandes = jeuOperandes;
+
+        this.nbOperandes = nbOperandes;
+
+        this.min = min;
+
+        this.max = max;
+
+        this.tpsReflexion = tpsReflexion;
+
+        this.tpsEnonce = tpsEnonce;
     }
     
     /**
@@ -44,19 +78,38 @@ public class Niveau {
      * @return le compte fabriqué
      */
     public Compte fabriquer() {
-        // bouchon (user story)
+
+        Random rand = new Random();
+
+        // On génère un nombre aléatoire compris entre 0 et max - min
+        int nbAResoudre = rand.nextInt(this.max - this.min);
+
+        // On ajoute min au résultat pour obtenir un nombre compris entre min et max
+        nbAResoudre += this.min;
+
+        // On génère une liste avec le tableau des opérandes initiales
+        Vector<OperandeInitiale> jeuInitial = new Vector<OperandeInitiale>();
+        for (int nombre : this.jeuOperandes) {
+            jeuInitial.add(new OperandeInitiale(nombre));
+        }
+
         return new Compte(
-                       777,
-                       List.of(new OperandeInitiale(2),
-                               new OperandeInitiale(1),
-                               new OperandeInitiale(6),
-                               new OperandeInitiale(100),
-                               new OperandeInitiale(2),
-                               new OperandeInitiale(3)
-                       ),
-                       45,
-                       35 
+                       nbAResoudre,
+                       jeuInitial,
+                       this.tpsReflexion,
+                       this.tpsEnonce
                    );
     }
 
+    @Override
+    public String toString() {
+        return "Niveau : \n" +
+                "libelle : " + libelle + '\n' +
+                "Nombre d'opérandes initiales : " + nbOperandes + '\n' +
+                "Opérandes initiales : " + Arrays.toString(jeuOperandes) + '\n' +
+                "Nombre min à trouver : " + min + '\n' +
+                "Nombre max à trouver : " + max + '\n' +
+                "Temps de réflexion autorisé : " + tpsReflexion + " secondes\n" +
+                "Temps énoncé réponse : " + tpsEnonce + " secondes\n";
+    }
 }
