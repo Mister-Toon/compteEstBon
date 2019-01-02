@@ -9,7 +9,7 @@ package lpmms.ceb;
  * @author frederic.barrios
  *
  */
-public class OperandeCalcule extends OperandeInitiale {
+public class OperandeCalcule implements Operande {
 
     /** Valeur de cette opérande */
     private int valeur;
@@ -20,7 +20,7 @@ public class OperandeCalcule extends OperandeInitiale {
      * @param droit opérande droite de l'opérande calculée
      */
     public OperandeCalcule(Operande gauche, Operateur oper, Operande droit) {
-        super(oper.calculer(gauche.getValeur(), droit.getValeur()));
+        this.valeur = oper.calculer(gauche.getValeur(), droit.getValeur());
     }
 
     /* (non-Javadoc)
