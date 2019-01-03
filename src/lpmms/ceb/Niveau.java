@@ -104,12 +104,12 @@ public class Niveau {
     @Override
     public String toString() {
         return "Niveau : \n" +
-                "libelle : " + libelle + '\n' +
-                "Nombre d'opérandes initiales : " + nbOperandes + '\n' +
-                "Opérandes initiales : " + Arrays.toString(jeuOperandes) + '\n' +
-                "Nombre min à trouver : " + min + '\n' +
-                "Nombre max à trouver : " + max + '\n' +
-                "Temps de réflexion autorisé : " + tpsReflexion + " secondes\n" +
-                "Temps énoncé réponse : " + tpsEnonce + " secondes\n";
+                "\tLibelle = " + libelle + '\n' +
+                "\tNombre d'opérandes initiales = " + nbOperandes + '\n' +
+                "\tOpérandes initiales = " + Arrays.toString(jeuOperandes) + '\n' +
+                "\tNombre min à trouver = " + min + '\n' +
+                "\tNombre max à trouver = " + max + '\n' +
+                "\tTemps de réflexion autorisé = " + tpsReflexion + " secondes\n" +
+                "\tTemps énoncé réponse = " + tpsEnonce + " secondes\n";
     }
 }
