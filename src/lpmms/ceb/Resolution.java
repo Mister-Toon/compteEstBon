@@ -41,8 +41,7 @@ public class Resolution {
             for(Operande oper : resultat) {
 
                 if(oper.getValeur() == cible){
-                    System.out.print(oper.getValeur());
-                    System.out.print("\n");
+                    System.out.println(oper);
                 }
             }
         }
@@ -117,13 +116,12 @@ public class Resolution {
 
                     } catch (IllegalArgumentException e) {
                         niveauSuivant.add(opGauche);
-                        traiter(niveauSuivant, cible);
                     }
                 }
             }
 
         } else {
-            resultats.add(niveau);
+            //resultats.add(niveau);
         }
     }
 

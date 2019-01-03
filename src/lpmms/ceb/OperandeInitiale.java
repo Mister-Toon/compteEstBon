@@ -36,6 +36,8 @@ public class OperandeInitiale implements Operande {
      */
     @Override
     public String toString() {
-        return toText();
+
+        return String.valueOf(this.valeur);
+
     }
 }

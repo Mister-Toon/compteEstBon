@@ -15,12 +15,14 @@ public class Difference implements Operateur {
 
     @Override
     public int calculer(int operandeGauche, int operandeDroit) {
-        // On verifie que le résultat sera supérieur à 0
-        if(operandeGauche>operandeDroit){
+        // On vérifie que l'opérande gauche et droit ne sont pas égaux
+        if (operandeGauche != operandeDroit) {
+
             return operandeGauche - operandeDroit;
+
         // Sinon, on renvoie une valeur d'erreur
         } else {
-            throw new IllegalArgumentException("L'opérande gauche doit être strictement supérieur à l'opérande droit");
+            throw new IllegalArgumentException("L'opérande gauche et droit ne peuvent être égaux");
         }
     }
 

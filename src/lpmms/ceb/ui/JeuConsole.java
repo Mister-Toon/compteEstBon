@@ -40,7 +40,7 @@ public class JeuConsole {
         Niveau standard = new Niveau(
             "classique",
             /* plaques disponibles pour tirage */
-            new int[]{1, 1, 2, 2, 25, 100},
+            new int[]{1, 2, 3, 4, 25, 100},
             6,    // opérandes initiales
             101,  // min de valeur du nombre à calculer
             999,  // max de valeur du nombre à calculer
