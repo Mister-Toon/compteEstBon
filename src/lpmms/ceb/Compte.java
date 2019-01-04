@@ -36,7 +36,7 @@ public class Compte {
      * @param tpsEnonce    tps max d'énoncé de la solution (en s)
      */
     public Compte(int aResoudre, 
-                  List<OperandeInitiale> disponibles, 
+                  List<OperandeInitial> disponibles,
                   int tpsReflexion, 
                   int tpsEnonce) {
         

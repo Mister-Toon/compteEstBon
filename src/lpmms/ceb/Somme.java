@@ -1,6 +1,5 @@
 package lpmms.ceb;
 
-import java.util.regex.Pattern;
 
 public class Somme implements Operateur{
 
@@ -11,7 +10,7 @@ public class Somme implements Operateur{
      *     zéro ou plusieurs fois le caractère d'espacement
      *     1 à 3 chiffres
      */
-    private Pattern regexSomme = Pattern.compile("\\d{1,3}\\s*[+]\\s*\\d{1,3}");
+    private String regexSomme = "^\\s*\\d{1,3}\\s*[+]\\s*\\d{1,3}\\s*$";
 
     @Override
     public int calculer(int opGauche, int opDroit) {
@@ -19,7 +18,7 @@ public class Somme implements Operateur{
     }
 
     @Override
-    public Pattern getRegex() {
+    public String getRegex() {
         return this.regexSomme;
     }
 

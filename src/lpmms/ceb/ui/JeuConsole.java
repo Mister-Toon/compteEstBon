@@ -39,8 +39,6 @@ public class JeuConsole {
         /* Définition du niveau standard */
         Niveau standard = new Niveau(
             "classique",
-            /* plaques disponibles pour tirage */
-            new int[]{1, 2, 3, 4, 25, 100},
             6,    // opérandes initiales
             101,  // min de valeur du nombre à calculer
             999,  // max de valeur du nombre à calculer
@@ -57,11 +55,14 @@ public class JeuConsole {
         
         /* Demande de la solution */
         System.out.println("\n\nVotre solution : ");
-        System.out.println("Compte trouve : ");
+        Saisie saisie = new Saisie();
+        saisie.start(aCalculer, standard.getTpsReflexion());
+
+        //System.out.println("Compte trouve : ");
         
         /* Affichage des meilleures solutions */
-        System.out.println("\n\nMeilleure solution trouvée par l'ordinateur : ");
-        Resolution.resoudre(aCalculer);
+        //System.out.println("\n\nMeilleure solution trouvée par l'ordinateur : ");
+        //Resolution.resoudre(aCalculer);
         
     }
 

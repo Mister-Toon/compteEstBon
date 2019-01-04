@@ -62,12 +62,15 @@ public class Resolution {
 
             System.out.print("Voulez vous afficher les resultats [o/n] : ");
             afficheResultats(cible, resultats);
-        } else {
+        } else if (resultatsApprox.size() != 0) {
             System.out.println("Aucun resultat exact trouve ...");
             System.out.println(resultatsApprox.size() + " resultats approximatifs trouves");
 
             System.out.print("Voulez vous afficher les resultats approximatifs [o/n] : ");
             afficheResultats(cible, resultatsApprox);
+        } else {
+            System.out.println("Aucun resultat exact trouve ...");
+            System.out.println("Aucun resultat approximatif trouve ...");
         }
     }
 

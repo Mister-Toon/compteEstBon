@@ -18,7 +18,7 @@ public interface Operateur {
     public int calculer(int opGauche, int opDroit);
 
     /** Retourne le pattern lié à l'opérateur */
-    public Pattern getRegex();
+    public String getRegex();
 
     /** Retourne le symbole de l'opérateur */
     public char getSymbole();

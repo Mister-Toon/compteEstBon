@@ -1,6 +1,5 @@
 package lpmms.ceb;
 
-import java.util.regex.Pattern;
 
 public class Produit implements Operateur {
 
@@ -11,7 +10,7 @@ public class Produit implements Operateur {
      *     zéro ou plusieurs fois le caractère d'espacement
      *     1 à 3 chiffres
      */
-    Pattern regexProduit = Pattern.compile("\\d{1,3}\\s*[x]\\s*\\d{1,3}");
+    private String regexProduit = "^\\s*\\d{1,3}\\s*[x]\\s*\\d{1,3}\\s*$";
 
     @Override
     public int calculer(int opGauche, int opDroit) {
@@ -19,7 +18,7 @@ public class Produit implements Operateur {
     }
 
     @Override
-    public Pattern getRegex() {
+    public String getRegex() {
         return this.regexProduit;
     }
 

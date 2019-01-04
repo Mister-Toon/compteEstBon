@@ -1,6 +1,5 @@
 package lpmms.ceb;
 
-import java.util.regex.Pattern;
 
 public class Difference implements Operateur {
 
@@ -11,7 +10,7 @@ public class Difference implements Operateur {
      *     zéro ou plusieurs fois le caractère d'espacement
      *     1 à 3 chiffres
      */
-    Pattern regexDiff = Pattern.compile("\\d{1,3}\\s*[-]\\s*\\d{1,3}");
+    private String regexDiff = "^\\s*\\d{1,3}\\s*[-]\\s*\\d{1,3}\\s*$";
 
     @Override
     public int calculer(int operandeGauche, int operandeDroit) {
@@ -27,7 +26,7 @@ public class Difference implements Operateur {
     }
 
     @Override
-    public Pattern getRegex() {
+    public String getRegex() {
         return this.regexDiff;
     }
 
