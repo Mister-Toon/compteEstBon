@@ -82,17 +82,17 @@ public class Saisie {
                 fin(chrono);
             } else if (reponse.matches(somme.getRegex())) {
 
-                String[] operandes = reponse.split("[+]");
+                String[] operandes = reponse.split("[" + String.valueOf(somme.getSymbole()) + "]");
                 interpreteSaisie(operandes, somme, chrono);
 
             } else if (reponse.matches(produit.getRegex())) {
 
-                String[] operandes = reponse.split("[x]");
+                String[] operandes = reponse.split("[" + String.valueOf(produit.getSymbole()) + "]");
                 interpreteSaisie(operandes, produit, chrono);
 
             } else if (reponse.matches(difference.getRegex())) {
 
-                String[] operandes = reponse.split("[-]");
+                String[] operandes = reponse.split("[" + String.valueOf(difference.getSymbole()) + "]");
                 interpreteSaisie(operandes, difference, chrono);
 
             } else {
@@ -113,13 +113,17 @@ public class Saisie {
         int operandeGauche = Integer.parseInt(operandes[0].trim());
         int operandeDroit = Integer.parseInt(operandes[1].trim());
 
-        // Si l'opérande n'a pas pu être calculé, on affiche une erreur, sinon on affiche les opérandes restants
-        if(!gereDisponibles(operandeGauche, operandeDroit, oper, chrono)){
-            System.out.println("ERREUR: un des opérandes ne fait pas partie des opérandes disponibles");
-        }
-        System.out.println("A trouver : " + this.cible + " -> Operandes restants : " + this.operandesDisponibles);
-        if (this.operandesDisponibles.size() == 1) {
-            fin(chrono);
+        if (oper instanceof Difference && operandeGauche < operandeDroit) {
+            System.out.println("ERREUR: L'operande gauche doit etre supérieur à l'operande droit lors d'une soustraction");
+        } else {
+            // Si l'opérande n'a pas pu être calculé, on affiche une erreur, sinon on affiche les opérandes restants
+            if(!gereDisponibles(operandeGauche, operandeDroit, oper, chrono)){
+                System.out.println("ERREUR: un des opérandes ne fait pas partie des opérandes disponibles");
+            }
+            System.out.println("A trouver : " + this.cible + " -> Operandes restants : " + this.operandesDisponibles);
+            if (this.operandesDisponibles.size() == 1) {
+                fin(chrono);
+            }
         }
     }
 

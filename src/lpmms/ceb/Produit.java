@@ -10,7 +10,7 @@ public class Produit implements Operateur {
      *     zéro ou plusieurs fois le caractère d'espacement
      *     1 à 3 chiffres
      */
-    private String regexProduit = "^\\s*\\d{1,5}\\s*[x]\\s*\\d{1,5}\\s*$";
+    private String regexProduit = "^\\s*\\d{1,5}\\s*[*]\\s*\\d{1,5}\\s*$";
 
     @Override
     public int calculer(int opGauche, int opDroit) {
@@ -24,6 +24,6 @@ public class Produit implements Operateur {
 
     @Override
     public char getSymbole() {
-        return 'x';
+        return '*';
     }
 }
