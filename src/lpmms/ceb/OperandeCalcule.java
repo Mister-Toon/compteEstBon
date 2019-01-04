@@ -54,11 +54,7 @@ public class OperandeCalcule implements Operande {
         return valeur;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
+    public String getCalculs(){
 
         /*
          * Pour le ToString d'un Operande calculé, on renvoie son calcul ainsi que le calcul de tous les opérandes
@@ -68,14 +64,14 @@ public class OperandeCalcule implements Operande {
 
         // Si les opérandes gauche et droits sont des opérandes calculés, on les affiche
         if (gauche instanceof OperandeCalcule) {
-            sb.append(gauche.toString());
+            sb.append(((OperandeCalcule) gauche).getCalculs());
         }
         if (droit instanceof OperandeCalcule) {
-            sb.append(droit.toString());
+            sb.append(((OperandeCalcule) droit).getCalculs());
         }
 
 
-         // Affichage du calcul sous forme -> "gauche" "oper" "droit" " = " "valeur"
+        // Affichage du calcul sous forme -> "gauche" "oper" "droit" " = " "valeur"
         sb.append(gauche.getValeur());
         sb.append(" ");
         sb.append(oper.getSymbole());
@@ -86,7 +82,14 @@ public class OperandeCalcule implements Operande {
         sb.append("\n");
 
         return sb.toString();
+    }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String.valueOf(getValeur());
     }
 
 }

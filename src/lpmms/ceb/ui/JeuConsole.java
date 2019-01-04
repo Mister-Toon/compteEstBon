@@ -7,6 +7,7 @@ package lpmms.ceb.ui;
 import lpmms.ceb.Compte;
 import lpmms.ceb.Niveau;
 import lpmms.ceb.Resolution;
+import lpmms.ceb.Saisie;
 
 /** 
  * Jeu du "Compte est bon" sur console texte
@@ -52,17 +53,15 @@ public class JeuConsole {
         /* Affichage et début du chronométrage */
         System.out.println("Voici le niveau : \n" + standard);
         System.out.println("Voici le tirage : \n" + aCalculer);
-        
+
         /* Demande de la solution */
         System.out.println("\n\nVotre solution : ");
         Saisie saisie = new Saisie();
-        saisie.start(aCalculer, standard.getTpsReflexion());
+        saisie.start(new Compte(aCalculer), standard.getTpsReflexion());
 
-        //System.out.println("Compte trouve : ");
-        
         /* Affichage des meilleures solutions */
-        //System.out.println("\n\nMeilleure solution trouvée par l'ordinateur : ");
-        //Resolution.resoudre(aCalculer);
+        System.out.println("\n\nMeilleure solution trouvee par l'ordinateur : ");
+        Resolution.resoudre(new Compte(aCalculer));
         
     }
 

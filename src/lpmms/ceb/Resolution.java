@@ -1,6 +1,7 @@
 package lpmms.ceb;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -23,11 +24,10 @@ public class Resolution {
     // Le tableau resultats contiendra des niveaux qui contiennent un resultat exact
     private static ArrayList<Vector<Operande>> resultats = new ArrayList<>();
 
-    /*
-     * Le tableau resultats approximatifs contiendra des niveaux qui contiennent une valeur plus ou moins egale à la
-     * cible ( plus ou moins 5 )
-     */
-    private static ArrayList<Vector<Operande>> resultatsApprox = new ArrayList<>();
+    // La liste resultats approximatifs contiendra le niveau qui contient la valeur la plus proche de la cible
+    private static Vector<Operande> resultatApprox = new Vector<>();
+    // Cette variable stocke l'écart entre la valeur cible et le meilleur résultat approché
+    private static int meilleurEcart = 999999;
 
     /**
      * Prend un compte à resoudre en argument et effectue les calculs possibles de manière recursive
@@ -38,39 +38,30 @@ public class Resolution {
     public static void resoudre(Compte aResoudre){
 
         // Les operandes disponibles pour atteindre le nombre cible
-        Vector<Operande> opInitiales = aResoudre.getOpInitiales();
+        Vector<Operande> opInitiales = aResoudre.getOperandes();
 
         // Le nombre que l'on chercher à obtenir
         int cible = aResoudre.getAResoudre();
 
-
-
         // On lance de parcours recursif par niveau sur les operandes initiaux
         traiter(opInitiales, cible);
 
-
-
         /*
-         * Si des resultats exacts on ete trouves, on affiche le nombre de resultats exacts trouves
-         * Puis on propose à l'utilisateur de voir les resultats exacts et on recupère sa reponse
-         * Si l'utilisateur veut voir les resultats, on les affiche
-         * Sinon, de la même manière, on lui propose d'afficher les resultats approximatifs
+         * Si des resultats exacts on ete trouvés, on affiche le nombre de résultats exacts trouvés
+         * Puis on propose à l'utilisateur de voir les résultats exacts et on recupère sa réponse
+         * Si l'utilisateur veut voir les résultats exacts, on les affiche
+         * Sinon, de la même manière, on lui propose d'afficher le résultat le plus proche
          */
         if (resultats.size() != 0) {
 
             System.out.println(resultats.size() + " resultats exacts on ete trouves");
 
-            System.out.print("Voulez vous afficher les resultats [o/n] : ");
+            System.out.print("Voulez vous afficher les resultats exacts ? [o/n] ");
             afficheResultats(cible, resultats);
-        } else if (resultatsApprox.size() != 0) {
-            System.out.println("Aucun resultat exact trouve ...");
-            System.out.println(resultatsApprox.size() + " resultats approximatifs trouves");
-
-            System.out.print("Voulez vous afficher les resultats approximatifs [o/n] : ");
-            afficheResultats(cible, resultatsApprox);
         } else {
             System.out.println("Aucun resultat exact trouve ...");
-            System.out.println("Aucun resultat approximatif trouve ...");
+            System.out.print("Voulez vous afficher le resultat le plus proche ? [o/n] ");
+            afficheResultats(cible, new ArrayList<>(List.of(resultatApprox)));
         }
     }
 
@@ -147,19 +138,15 @@ public class Resolution {
             }
 
         } else {
-            boolean proche = false;
             /*
-             * Pour chaque operande du niveau final, si l'ecart entre l'operande et la cible est inferieur ou egal à 5,
-             * on considère que le resultat est proche de la cible
+             * Pour chaque operande du niveau final, si l'ecart entre l'operande et la cible est inferieur à la valeur
+             * la plus proche courante, le résultat devient la nouvelle valeur la plus proche
              */
             for (Operande o : niveau) {
-                if (Math.abs(o.getValeur() - cible) <= 5) {
-                    proche = true;
+                if (Math.abs(o.getValeur() - cible) < meilleurEcart) {
+                    meilleurEcart = Math.abs(o.getValeur() - cible);
+                    resultatApprox = niveau;
                 }
-            }
-            // Si une valeur proche de la cible a ete trouvee, on ajoute le niveau à la liste des resultats approximatifs
-            if (proche) {
-                resultatsApprox.add(niveau);
             }
         }
     }
@@ -167,7 +154,7 @@ public class Resolution {
     /**
      * Affiche les résultats d'un tableau de résultats après l'avoir proposé à l'utilisateur
      * Afin d'afficher seulement les calculs menant au résultat final, ou les valeurs proches. On vérifie pour chaque
-     * opérande d'un niveau qu'elle ait un écart d'au plus 5 avec la valeur cible
+     * opérande d'un niveau qu'il ait un écart d'au plus 5 avec la valeur cible et qu'elle soit un opérande calculé
      * @param cible le nomre à trouver dans ce compte
      * @param tableauResultats le tableau contenant les résultats
      */
@@ -179,8 +166,8 @@ public class Resolution {
             for (Vector<Operande> resultat : tableauResultats) {
                 for(Operande oper : resultat) {
 
-                    if(Math.abs(oper.getValeur() - cible) <= 5){
-                        System.out.println(oper);
+                    if(Math.abs(oper.getValeur() - cible) <= 5 && oper instanceof OperandeCalcule){
+                        System.out.println(((OperandeCalcule) oper).getCalculs());
                     }
                 }
             }

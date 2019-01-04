@@ -80,7 +80,7 @@ public class Niveau {
     public Compte fabriquer() {
 
 
-        Vector<OperandeInitial> jeuInitial =  genererTirage();
+        Vector<Operande> jeuInitial =  genererTirage();
 
         int nbAResoudre = genererEntAleatoire(this.min, this.max);
 
@@ -107,8 +107,8 @@ public class Niveau {
      * d'opérandes initialement disponibles
      * @return le tirage
      */
-    private Vector<OperandeInitial> genererTirage(){
-        Vector<OperandeInitial> jeuInitial = new Vector<>();
+    private Vector<Operande> genererTirage(){
+        Vector<Operande> jeuInitial = new Vector<>();
 
         /*
          * Le nombre de petits opérandes qui seront tirés correspond à 2/3 du nombre d'opérandes totaux, arrondi au
@@ -136,7 +136,7 @@ public class Niveau {
      * @param nbATirer nombre d'opérandes à mettre dans aRemplir
      * @param listOperInit liste d'opérandes disponibles pour la sélection aléatoire
      */
-    private void genererOperandes(Vector<OperandeInitial> aRemplir, int nbATirer, List<Integer> listOperInit) {
+    private void genererOperandes(Vector<Operande> aRemplir, int nbATirer, List<Integer> listOperInit) {
 
         for (int i = 0; i < nbATirer; i++) {
             // Pour tirer un opérande initial aléatoirement on génère un index aléatoire

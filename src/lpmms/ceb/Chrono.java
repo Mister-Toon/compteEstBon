@@ -1,7 +1,5 @@
 package lpmms.ceb;
 
-import lpmms.ceb.ui.Saisie;
-
 /**
  * Chrono qui gère le temps donné au joueur pour résoudre un niveau
  */
@@ -41,11 +39,10 @@ public class Chrono extends Thread {
         try {
             // Le temps résolution est en secondes, on multiplie par 1000 pour obtenir des millisecondes
             Thread.sleep(this.tpsResolution * 1000);
-
             this.sender.fin();
 
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            // Interruption du thread par l'utilisateur
         }
 
     }

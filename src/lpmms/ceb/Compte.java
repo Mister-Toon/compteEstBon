@@ -17,10 +17,7 @@ public class Compte {
     private int aResoudre;
 
     /** Les opérandes initiales */
-    private Vector<Operande> opInitiales;
-    
-    /** Les opérandes disponibles à un instant t */
-    private Vector<Operande> disponibles;
+    private Vector<Operande> opDisponibles;
 
     /** tps max de réflexion avant réponse (en s) */
     private int tpsReflexion;
@@ -36,16 +33,23 @@ public class Compte {
      * @param tpsEnonce    tps max d'énoncé de la solution (en s)
      */
     public Compte(int aResoudre, 
-                  List<OperandeInitial> disponibles,
+                  List<Operande> disponibles,
                   int tpsReflexion, 
                   int tpsEnonce) {
         
         this.aResoudre = aResoudre;
         // TODO clonage pour conserver l'état initial ???
-        this.opInitiales = new Vector<Operande>(disponibles);
-        this.disponibles = new Vector<Operande>(disponibles);
+        this.opDisponibles = new Vector<>(disponibles);
         this.tpsReflexion = tpsReflexion;
         this.tpsEnonce = tpsEnonce;
+    }
+
+    /**
+     * Constructeur qui permet de faire une copie profonde d'un autre élément Compte
+     * @param autre objet Compte à copier
+     */
+    public Compte(Compte autre) {
+        this(autre.getAResoudre(), autre.getOperandes(), autre.getTpsReflexion(), autre.getTpsEnonce());
     }
 
     /* (non-Javadoc)
@@ -54,7 +58,7 @@ public class Compte {
     @Override
     public String toString() {
         StringBuilder affichageCompte = new StringBuilder("Opérandes : ");
-        for (Operande dispo : disponibles) {
+        for (Operande dispo : opDisponibles) {
             affichageCompte.append('\t').append(dispo);
         }
         affichageCompte.append("\nA trouver : ").append(aResoudre).append('\n');
@@ -72,8 +76,17 @@ public class Compte {
     /**
      * @return opInitiales
      */
-    public Vector<Operande> getOpInitiales(){
-        return opInitiales;
+    public Vector<Operande> getOperandes(){
+        return opDisponibles;
     }
 
+    /** @return tpsReflexion */
+    public int getTpsReflexion() {
+        return tpsReflexion;
+    }
+
+    /** @return tpxEnonce */
+    public int getTpsEnonce() {
+        return tpsEnonce;
+    }
 }
